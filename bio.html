@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Vũ Đức Duy · Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-wrap">
+        <div class="bg-base"></div>
+        <div class="bg-mesh"></div>
+        <div class="bg-grid"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+    </div>
+
+    <div class="container">
+        <main class="card">
+            <header class="profile-header">
+                <div class="avatar-wrap">
+                    <img class="avatar" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde" alt="Vũ Đức Duy">
+                </div>
+                <h1 id="profile-name">Vũ Đức Duy</h1>
+                <p class="tagline" id="profile-tagline">Disciplined in thought, distinctive in action</p>
+            </header>
+
+            <section class="section-block" data-reveal data-section="intro">
+                <h2 class="section-title">Giới thiệu</h2>
+                <p class="intro-text" id="profile-intro">
+                    Xin chào, tôi là Duy. Tôi đam mê học hỏi và phát triển bản thân mỗi ngày.
+                    Luôn nỗ lực để suy nghĩ có kỷ luật và hành động khác biệt trong công việc cũng như cuộc sống.
+                </p>
+            </section>
+
+            <section class="section-block" data-reveal data-section="edu">
+                <h2 class="section-title">Trình độ học vấn</h2>
+                <ul class="edu-list" id="edu-list">
+                    <li class="edu-item">
+                        <div class="edu-school">Đại học / Cao đẳng [Tên trường]</div>
+                        <div class="edu-meta">Chuyên ngành · Năm tốt nghiệp</div>
+                    </li>
+                    <li class="edu-item">
+                        <div class="edu-school">Trung học phổ thông [Tên trường]</div>
+                        <div class="edu-meta">Năm tốt nghiệp</div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section-block" data-reveal data-section="contact">
+                <h2 class="section-title">Thông tin cá nhân</h2>
+                <div class="buttons" id="contact-buttons">
+                    <a href="tel:0362302106" class="btn btn-primary" id="btn-phone">📞 Điện thoại</a>
+                    <a href="mailto:jerryvux@gmail.com" class="btn btn-secondary" id="btn-email">✉️ Email</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=X%C3%A3+Ngh%C4%A9a+L%C3%A2m,+Ninh+B%C3%ACnh" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" id="btn-location">📍 Vị trí</a>
+                    <a href="https://facebook.com/yourprofile" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" id="btn-facebook">Facebook</a>
+                    <a href="https://tiktok.com/@yourprofile" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" id="btn-tiktok">TikTok</a>
+                </div>
+            </section>
+        </main>
+
+        <p class="credit credit-text">
+            Thiết kế bởi <a href="#" target="_blank" rel="noopener noreferrer">Vũ Đức Duy</a>
+        </p>
+    </div>
+
+    <!-- Nút Edit: chỉ hiện khi chủ sở hữu mở link ?edit=MẬT_KHẨU -->
+    <button type="button" class="edit-fab" id="edit-fab" title="Chỉnh sửa (chủ sở hữu)" style="display: none;">✎</button>
+
+    <!-- Panel chỉnh sửa -->
+    <div class="edit-overlay" id="edit-overlay" aria-hidden="true">
+        <div class="edit-panel">
+            <div class="edit-panel-header">
+                <h3>Chỉnh sửa profile (Chủ sở hữu)</h3>
+                <button type="button" class="edit-close" id="edit-close" aria-label="Đóng">×</button>
+            </div>
+            <div class="edit-panel-body">
+                <fieldset class="edit-group">
+                    <legend>🔐 Mật khẩu chủ (để mở chế độ sửa)</legend>
+                    <label>Mật khẩu khi mở link <code>?edit=MẬT_KHẨU</code> <input type="password" id="input-owner-key" placeholder="Đặt mật khẩu và lưu"></label>
+                    <button type="button" class="btn-save-key" id="save-owner-key">Lưu mật khẩu</button>
+                    <p class="edit-hint">Chỉ bạn biết mật khẩu. Gửi link <strong>không có</strong> ?edit= cho người xem.</p>
+                </fieldset>
+                <fieldset class="edit-group">
+                    <legend>Ẩn / Hiện phần (người xem thấy gì)</legend>
+                    <label class="edit-toggle"><input type="checkbox" id="opt-intro" checked> Hiển thị Giới thiệu</label>
+                    <label class="edit-toggle"><input type="checkbox" id="opt-edu" checked> Hiển thị Trình độ học vấn</label>
+                    <label class="edit-toggle"><input type="checkbox" id="opt-contact" checked> Hiển thị Thông tin cá nhân</label>
+                </fieldset>
+                <fieldset class="edit-group">
+                    <legend>Thông tin cơ bản</legend>
+                    <label>Tên <input type="text" id="input-name" placeholder="Họ tên"></label>
+                    <label>Tagline <input type="text" id="input-tagline" placeholder="Câu mô tả ngắn"></label>
+                    <label>Giới thiệu <textarea id="input-intro" rows="3" placeholder="Đoạn giới thiệu bản thân"></textarea></label>
+                </fieldset>
+                <fieldset class="edit-group">
+                    <legend>Học vấn (mỗi dòng: Tên trường | Chuyên ngành · Năm)</legend>
+                    <textarea id="input-edu" rows="4" placeholder="Đại học ABC | Công nghệ · 2020&#10;THPT XYZ | 2016"></textarea>
+                </fieldset>
+                <fieldset class="edit-group">
+                    <legend>Liên hệ & mạng xã hội</legend>
+                    <label>Số điện thoại <input type="tel" id="input-phone" placeholder="0362302106"></label>
+                    <label>Email <input type="email" id="input-email" placeholder="email@example.com"></label>
+                    <label>Địa chỉ (cho nút Vị trí) <input type="text" id="input-address" placeholder="Xã Nghĩa Lâm, Ninh Bình"></label>
+                    <label>Link Facebook <input type="url" id="input-facebook" placeholder="https://facebook.com/..."></label>
+                    <label>Link TikTok <input type="url" id="input-tiktok" placeholder="https://tiktok.com/@..."></label>
+                </fieldset>
+            </div>
+            <div class="edit-panel-footer">
+                <button type="button" class="btn-apply" id="edit-apply">Áp dụng</button>
+                <button type="button" class="btn-share" id="edit-copy-link">📋 Sao chép link chia sẻ</button>
+                <button type="button" class="btn-reset" id="edit-reset">Đặt lại mặc định</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const STORAGE_KEY = 'bioProfile';
+            const OWNER_KEY_STORAGE = 'bioOwnerKey';
+            const defaultData = {
+                sections: { intro: true, edu: true, contact: true },
+                name: 'Vũ Đức Duy',
+                tagline: 'Disciplined in thought, distinctive in action',
+                intro: 'Xin chào, tôi là Duy. Tôi đam mê học hỏi và phát triển bản thân mỗi ngày.\nLuôn nỗ lực để suy nghĩ có kỷ luật và hành động khác biệt trong công việc cũng như cuộc sống.',
+                edu: 'Đại học / Cao đẳng [Tên trường] | Chuyên ngành · Năm tốt nghiệp\nTrung học phổ thông [Tên trường] | Năm tốt nghiệp',
+                phone: '0362302106',
+                email: 'jerryvux@gmail.com',
+                address: 'Xã Nghĩa Lâm, Ninh Bình',
+                facebook: 'https://facebook.com/yourprofile',
+                tiktok: 'https://tiktok.com/@yourprofile'
+            };
+
+            function loadData() {
+                try {
+                    const raw = localStorage.getItem(STORAGE_KEY);
+                    if (raw) return { ...defaultData, ...JSON.parse(raw) };
+                } catch (_) {}
+                return { ...defaultData };
+            }
+
+            function saveData(data) {
+                try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (_) {}
+            }
+
+            function applyToPage(data) {
+                document.getElementById('profile-name').textContent = data.name || defaultData.name;
+                document.getElementById('profile-tagline').textContent = data.tagline || defaultData.tagline;
+                document.getElementById('profile-intro').textContent = data.intro || defaultData.intro;
+
+                document.querySelectorAll('[data-section]').forEach(el => {
+                    const key = el.getAttribute('data-section');
+                    el.style.display = data.sections && data.sections[key] === false ? 'none' : '';
+                });
+
+                const eduList = document.getElementById('edu-list');
+                const lines = (data.edu || defaultData.edu).split('\n').filter(Boolean);
+                eduList.innerHTML = lines.map(line => {
+                    const parts = line.split('|').map(s => s.trim());
+                    const school = parts[0] || '';
+                    const meta = parts[1] || '';
+                    return '<li class="edu-item"><div class="edu-school">' + escapeHtml(school) + '</div><div class="edu-meta">' + escapeHtml(meta) + '</div></li>';
+                }).join('');
+
+                const phone = (data.phone || '').trim();
+                const email = (data.email || '').trim();
+                const address = (data.address || '').trim();
+                const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(address);
+                const fb = (data.facebook || '').trim();
+                const tk = (data.tiktok || '').trim();
+
+                const btnPhone = document.getElementById('btn-phone');
+                const btnEmail = document.getElementById('btn-email');
+                const btnLocation = document.getElementById('btn-location');
+                const btnFacebook = document.getElementById('btn-facebook');
+                const btnTiktok = document.getElementById('btn-tiktok');
+                if (btnPhone) { btnPhone.href = 'tel:' + phone; }
+                if (btnEmail) { btnEmail.href = 'mailto:' + email; }
+                if (btnLocation) { btnLocation.href = mapsUrl; }
+                if (btnFacebook) { btnFacebook.href = fb || '#'; }
+                if (btnTiktok) { btnTiktok.href = tk || '#'; }
+            }
+
+            function escapeHtml(s) {
+                const div = document.createElement('div');
+                div.textContent = s;
+                return div.innerHTML;
+            }
+
+            function fillForm(data) {
+                document.getElementById('opt-intro').checked = data.sections?.intro !== false;
+                document.getElementById('opt-edu').checked = data.sections?.edu !== false;
+                document.getElementById('opt-contact').checked = data.sections?.contact !== false;
+                document.getElementById('input-name').value = data.name || '';
+                document.getElementById('input-tagline').value = data.tagline || '';
+                document.getElementById('input-intro').value = data.intro || '';
+                document.getElementById('input-edu').value = data.edu || '';
+                document.getElementById('input-phone').value = data.phone || '';
+                document.getElementById('input-email').value = data.email || '';
+                document.getElementById('input-address').value = data.address || '';
+                document.getElementById('input-facebook').value = data.facebook || '';
+                document.getElementById('input-tiktok').value = data.tiktok || '';
+            }
+
+            function getFormData() {
+                return {
+                    sections: {
+                        intro: document.getElementById('opt-intro').checked,
+                        edu: document.getElementById('opt-edu').checked,
+                        contact: document.getElementById('opt-contact').checked
+                    },
+                    name: document.getElementById('input-name').value.trim() || defaultData.name,
+                    tagline: document.getElementById('input-tagline').value.trim() || defaultData.tagline,
+                    intro: document.getElementById('input-intro').value.trim() || defaultData.intro,
+                    edu: document.getElementById('input-edu').value.trim() || defaultData.edu,
+                    phone: document.getElementById('input-phone').value.trim() || defaultData.phone,
+                    email: document.getElementById('input-email').value.trim() || defaultData.email,
+                    address: document.getElementById('input-address').value.trim() || defaultData.address,
+                    facebook: document.getElementById('input-facebook').value.trim() || defaultData.facebook,
+                    tiktok: document.getElementById('input-tiktok').value.trim() || defaultData.tiktok
+                };
+            }
+
+            function getOwnerKey() {
+                try { return localStorage.getItem(OWNER_KEY_STORAGE) || ''; } catch (_) { return ''; }
+            }
+            function setOwnerKey(key) {
+                try { localStorage.setItem(OWNER_KEY_STORAGE, (key || '').trim()); } catch (_) {}
+            }
+
+            function encodeShareData(data) {
+                try {
+                    const json = JSON.stringify(data);
+                    return btoa(unescape(encodeURIComponent(json))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+                } catch (_) { return ''; }
+            }
+            function decodeShareData(encoded) {
+                try {
+                    let s = encoded.replace(/-/g, '+').replace(/_/g, '/');
+                    while (s.length % 4) s += '=';
+                    return JSON.parse(decodeURIComponent(escape(atob(s))));
+                } catch (_) { return null; }
+            }
+
+            function getDataFromUrl() {
+                const params = new URLSearchParams(location.search);
+                const d = params.get('d');
+                if (d) return decodeShareData(d);
+                return null;
+            }
+
+            function isOwnerMode() {
+                const params = new URLSearchParams(location.search);
+                const editParam = params.get('edit');
+                if (editParam === null) return false;
+                const savedKey = getOwnerKey();
+                if (!savedKey) return true;
+                return editParam === savedKey;
+            }
+
+            let data;
+            const urlData = getDataFromUrl();
+            if (urlData) {
+                data = { ...defaultData, ...urlData };
+                applyToPage(data);
+                document.getElementById('edit-fab').style.display = 'none';
+            } else {
+                data = loadData();
+                applyToPage(data);
+                if (isOwnerMode()) {
+                    document.getElementById('edit-fab').style.display = '';
+                } else {
+                    document.getElementById('edit-fab').style.display = 'none';
+                }
+            }
+
+            const overlay = document.getElementById('edit-overlay');
+            const fab = document.getElementById('edit-fab');
+            const closeBtn = document.getElementById('edit-close');
+            const applyBtn = document.getElementById('edit-apply');
+            const resetBtn = document.getElementById('edit-reset');
+            const saveKeyBtn = document.getElementById('save-owner-key');
+            const copyLinkBtn = document.getElementById('edit-copy-link');
+
+            if (saveKeyBtn) {
+                saveKeyBtn.addEventListener('click', function() {
+                    const key = document.getElementById('input-owner-key').value.trim();
+                    setOwnerKey(key);
+                    alert(key ? 'Đã lưu mật khẩu. Link chỉnh sửa: ' + location.pathname + '?edit=' + encodeURIComponent(key) : 'Đã xóa mật khẩu.');
+                });
+            }
+
+            if (copyLinkBtn) {
+                copyLinkBtn.addEventListener('click', function() {
+                    const current = getFormData();
+                    const encoded = encodeShareData(current);
+                    const base = location.origin + location.pathname;
+                    const shareUrl = base + (encoded ? '?d=' + encoded : '');
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(shareUrl).then(function() { alert('Đã sao chép link chia sẻ. Gửi link này cho người xem.'); }).catch(function() { prompt('Sao chép link:', shareUrl); });
+                    } else {
+                        prompt('Sao chép link chia sẻ:', shareUrl);
+                    }
+                });
+            }
+
+            fab.addEventListener('click', function() {
+                fillForm(data);
+                overlay.classList.add('edit-overlay--open');
+                overlay.setAttribute('aria-hidden', 'false');
+            });
+
+            closeBtn.addEventListener('click', closePanel);
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) closePanel();
+            });
+
+            function closePanel() {
+                overlay.classList.remove('edit-overlay--open');
+                overlay.setAttribute('aria-hidden', 'true');
+            }
+
+            applyBtn.addEventListener('click', function() {
+                data = getFormData();
+                saveData(data);
+                applyToPage(data);
+                closePanel();
+            });
+
+            resetBtn.addEventListener('click', function() {
+                if (confirm('Đặt lại toàn bộ về mặc định? Dữ liệu đã lưu sẽ bị xóa.')) {
+                    data = { ...defaultData };
+                    saveData(data);
+                    applyToPage(data);
+                    fillForm(data);
+                }
+            });
+
+            // Reveal sections khi scroll
+            const sections = document.querySelectorAll('[data-reveal]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('revealed');
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+            sections.forEach(s => observer.observe(s));
+        })();
+    </script>
+</body>
+
+</html>
