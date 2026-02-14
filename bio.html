@@ -41,7 +41,7 @@
                     <img class="avatar" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde" alt="Vũ Đức Duy">
                 </div>
                 <h1 id="profile-name">Vũ Đức Duy</h1>
-                 <p class="names" id="names-tagline"> 04 · 02 · 2003</p>
+                 <p class="nams" id="nams-tagline"> 04 · 02 · 2003</p>
                 <p class="tagline" id="profile-tagline">Disciplined in thought, distinctive in action</p>
             </header>
 
@@ -141,7 +141,7 @@
             const defaultData = {
                 sections: { intro: true, edu: true, contact: true },
                 name: 'Vũ Đức Duy',
-                names:'04 · 02 · 2003',
+                nams:'04 · 02 · 2003',
                 tagline: 'Disciplined in thought, distinctive in action',
                 intro: 'Xin chào, tôi là Duy. Tôi đam mê học hỏi và phát triển bản thân mỗi ngày.\nLuôn nỗ lực để suy nghĩ có kỷ luật và hành động khác biệt trong công việc cũng như cuộc sống.',
                 edu: 'Đại học Mỏ - Địa Chất | Chuyên ngành Công nghệ phần mềm · 2021 - 2026\nTrung học phổ thông C Nghĩa Hưng | 2018 - 2021',
@@ -166,7 +166,7 @@
 
             function applyToPage(data) {
                 document.getElementById('profile-name').textContent = data.name || defaultData.name;
-                document.getElementById('names-tagline').textContent= data.names || defaultData.names;
+                document.getElementById('nams-tagline').textContent= data.nams || defaultData.nams;
                 document.getElementById('profile-tagline').textContent = data.tagline || defaultData.tagline;
                 document.getElementById('profile-intro').textContent = data.intro || defaultData.intro;
 
