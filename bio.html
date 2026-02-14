@@ -133,6 +133,9 @@
             </div>
         </div>
     </div>
+    <audio id="bg-music" loop>
+        <source src="backgroundmusic.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
         (function() {
@@ -366,6 +369,32 @@
                 });
             }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
             sections.forEach(s => observer.observe(s));
+        })();
+        //nhạc 
+        window.addEventListener('click', function () {
+            const audio = document.getElementById('bg-music');
+            if (audio.paused) {
+                audio.play().catch(error => {
+                    console.log("Trình duyệt chặn phát nhạc tự động:", error);
+                });
+            }
+        }, { once: true });
+        (function () {
+            const audio = document.getElementById('bg-music');
+
+            // 0.5 tương ứng với 50% âm lượng thực của file nhạc
+            audio.volume = 0.5;
+
+            const startMusic = () => {
+                audio.play().catch(err => console.log("Chờ tương tác..."));
+                ['click', 'touchstart', 'scroll'].forEach(evt =>
+                    document.removeEventListener(evt, startMusic)
+                );
+            };
+
+            ['click', 'touchstart', 'scroll'].forEach(evt =>
+                document.addEventListener(evt, startMusic)
+            );
         })();
     </script>
 </body>
