@@ -41,7 +41,7 @@
                     <img class="avatar" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde" alt="Vũ Đức Duy">
                 </div>
                 <h1 id="profile-name">Vũ Đức Duy</h1>
-                 <p class="names" id="profile-tagline"> 04 · 02 · 2003</p>
+                 <p class="names" id="names-tagline"> 04 · 02 · 2003</p>
                 <p class="tagline" id="profile-tagline">Disciplined in thought, distinctive in action</p>
             </header>
 
@@ -166,6 +166,7 @@
 
             function applyToPage(data) {
                 document.getElementById('profile-name').textContent = data.name || defaultData.name;
+                document.getElementById('names-tagline').textContent= data.names || defaultData.names;
                 document.getElementById('profile-tagline').textContent = data.tagline || defaultData.tagline;
                 document.getElementById('profile-intro').textContent = data.intro || defaultData.intro;
 
